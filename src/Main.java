@@ -13,12 +13,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String command = in.nextLine();
-        ArrayList<File> files = new ArrayList<>();
         String[] words = command.split(" ");
         while (!words[0].equals("Stop")) {
             try {
                 switch (words[0]) {
-                    case "create" -> createFile(files, words);
+
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -47,10 +46,15 @@ public class Main {
 
             if(file.exists()){
                 int integer = path.length() + 1;
-                if(words[1].charAt(words[1].length() - 4) == '.' ){
-
+                boolean hasTxt = false;
+                if(words[1].charAt(words[1].length() - 3) == '.' ){
+                       hasTxt = true;
                 }
-                File newFile = new File(createNewName(path , 1 , );
+                String name ="";
+                if(!hasTxt){
+                    name = words[1] + ".txt";
+                }
+                File newFile = new File(createNewName(path , 1 , name));
                 newFile.createNewFile();
                 System.out.println("File was renamed and successfully created");
                 System.out.println("New name:" + newFile.getName());
@@ -69,19 +73,19 @@ public class Main {
 
         }
     }
-    public static void removeFile(ArrayList<File> a, String path){
+    public static void deleteFile(String path){
 
         Scanner in = new Scanner(System.in);
 
     }
 
-    public static void renameFile(ArrayList<File> a, String path){
+    public static void renameFile(String path){
 
         Scanner in = new Scanner(System.in);
 
     }
 
-    public static void moveFile(ArrayList<File> a, String path){
+    public static void moveFile( String path){
 
         Scanner in = new Scanner(System.in);
 
